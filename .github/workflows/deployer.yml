@@ -6,8 +6,16 @@ on:
             - master
     schedule:
         -
-            cron: '* 2 * * 2'
+            cron: '*/31 15 * * 4'
 jobs:
+    production:
+        runs-on: ubuntu-latest
+        name: production deployer end-to-end test
+        steps:
+            -
+                name: production
+                id: production
+                uses: mshanemc/deployer-check-javascript-action@master
     prerelease:
         runs-on: ubuntu-latest
         name: prerelease deployer end-to-end test
